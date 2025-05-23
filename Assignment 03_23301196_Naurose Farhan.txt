@@ -1,0 +1,362 @@
+//NAME: NAUROSE FARHAN MOSTAFA
+//ID:   23301196
+
+//STRING
+//TASK 1
+import java.util.Scanner;
+public class StringTask1{
+  public static void main (String [] args){
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Enter a string: ");
+    String s = sc.nextLine();
+    boolean flag = true;
+    
+    for (int i = 0; i < s.length()/2; i++){
+      if (s.charAt(i) != s.charAt(s.length() - i - 1)){
+        flag = false;
+        break;
+      }
+    }
+    if (flag == true){
+      System.out.println(s + " is a palindrome");
+    }
+    else{
+      System.out.println(s + " is NOT a palindrome");
+    }
+  }
+}
+
+
+//TASK 2 
+import java.util.Scanner;
+public class StringTask2 {
+  public static void main(String [] args) {
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Enter a string: ");
+    String s = sc.nextLine();
+    s = s.toLowerCase();
+    String store = " ";  
+    
+    for (int i = 0; i < s.length(); i++) {
+      char c_count = s.charAt(i);
+      if (c_count == 'a') {
+        char ch = 'z';
+        store += ch;
+      } 
+      else {
+        char ch = (char) (c_count - 1);
+        store += ch;
+      }
+    }
+    System.out.println(store);
+  }
+}
+
+
+//TASK 3 
+import java.util.Scanner;
+public class StringTask3 {
+    public static void main(String [] args) {
+        Scanner sc= new Scanner(System.in);
+        System.out.print("Enter a word: ");
+        String s = sc.next();
+        s = s.toUpperCase();
+        
+        for (int i = 0; i < s.length(); i++) {
+            for (int j = 0; j <= i; j++) {
+                System.out.print(s.charAt(j));
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+//TASK 4
+import java.util.Scanner;
+public class StringTask4 {
+  public static void main(String [] args) {
+    Scanner sc = new Scanner(System.in);
+    boolean flag = true;
+    
+    while (flag){
+      String s = sc.nextLine();
+      flag = false;
+      int count = 0;
+      for (int i = 0; i < s.length(); i++){
+        count = 1;
+        for (int j = i + 1; j < s.length(); j++){
+          if (s.charAt(i) == s.charAt(j)){
+            count++;
+          }
+        }
+        if (count > 1){
+          System.out.println(s.charAt(i) + "' has been counted " + count + " times in word " + s);
+          flag = true;
+        }
+      }
+      if (flag){
+        System.out.println("Please enter another word.");
+      } 
+      else{
+        System.out.println("You have entered " + s);
+      }
+    }
+  }
+}
+
+
+//TASK 5 
+import java.util.Scanner;
+public class StringTask5{
+  public static void main(String [] args) {
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Enter first word: ");
+    String s1 = sc.nextLine();
+    System.out.print("Enter second word: ");
+    String s2 = sc.nextLine();
+    String s = s1 + " " + s2;
+
+    int sum = 0; 
+    int i = 0;
+    while (i < s.length()) {
+      char ch = s.charAt(i);
+      if (ch >= 'A' && ch <= 'Z') {
+        sum += ch - 'A' + 65;
+      } 
+      else if (ch >= 'a' && ch <= 'z') {
+        sum += ch - 'a' + 97;
+      }
+      i++;
+    }
+    System.out.println(s);
+    System.out.println(sum);
+  }
+}
+
+
+//TASK 6
+import java.util.Scanner;
+public class StringTask6{
+    public static void main(String [] args) {
+      Scanner sc = new Scanner(System.in);
+      System.out.print("Enter a string: ");
+      String s = sc.nextLine();
+      String store = " ";
+
+      for (int i = 0; i < s.length(); i++) {
+        char c = s.charAt(i);
+            if (i == 0 || c != s.charAt(i - 1)) {
+                store += c;
+            }
+        }
+        System.out.println(store);
+    }
+}
+
+
+
+//ARRAY 
+//TASK 1 
+import java.util.Scanner;
+import java.util.Arrays;
+public class ArrayTask1 {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    System.out.print("N = ");
+    int n = sc.nextInt();
+    int [] arr = new int[n];
+    
+    System.out.println("Enter " + n + " numbers: ");
+    for (int i = 0; i < n; i++){
+      arr[i] = sc.nextInt();
+    }
+    System.out.print("Remove Element = ");
+    int remove = sc.nextInt();
+    
+    int count = 0;
+    int [] rem_arr = new int[n]; 
+    for (int i = 0; i < n; i++){
+      if (arr[i] != remove){
+        rem_arr[count] = arr[i]; 
+        count++;
+      }
+    }
+    System.out.println("Input array: " + Arrays.toString(arr)); 
+    if (count > 0){
+      System.out.print("New array: ");
+      int [] new_arr = Arrays.copyOf(rem_arr, count);
+      System.out.println(Arrays.toString(new_arr));
+    }
+    else{
+      System.out.println("Element not found");
+    }
+  }
+}
+
+
+//TASK 2 
+import java.util.Scanner;
+public class ArrayTask2{
+  public static void main (String [] args) {
+    Scanner sc = new Scanner(System.in);
+    int [] arr = new int[5]; 
+    
+    System.out.println("Enter 5 numbers:");
+    for (int i = 0; i < arr.length; i++) {
+      arr [i] = sc.nextInt();
+    }
+    int min = arr [0];
+    int max = arr [0];
+    int max_idx = 0;
+    int min_idx = 0;
+
+    for (int i = 0; i < arr.length; i++) {
+      if (arr [i] < min) {
+        min = arr [i];
+        min_idx = i;
+      }
+      if (arr [i] > max) {
+        max = arr [i];
+        max_idx = i;
+      }
+    }
+    System.out.println("The largest number " + max + " was found at location " + max_idx);
+    System.out.println("The smallest number " + min + " was found at location " + min_idx);
+  }
+}
+
+
+//TASK 3 
+import java.util.Scanner;
+public class ArrayTask3{
+  public static void main (String [] args) {
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Enter the length of the array: ");
+    int n = sc.nextInt();
+    int [] arr = new int [n];
+
+    System.out.println("Enter " + n + " numbers:");
+    for (int i = 0; i < n; i++) {
+      arr [i] = sc.nextInt();
+    }
+    for (int i = 0; i < n / 2; i++) {  
+      int temp = arr [i];  
+      arr [i] = arr [n - i - 1];
+      arr [n - i - 1] = temp; 
+    }
+    for (int i = 0; i < n; i++) {
+      System.out.print(arr [i] + " ");
+    }
+    System.out.println();
+  }
+}
+
+
+//TASK 4
+import java.util.Scanner;
+public class ArrayTask4{
+  public static void main(String [] args){
+    Scanner sc = new Scanner(System.in);
+    
+    System.out.print("N = ");
+    int n = sc.nextInt();
+    int [] arr_1 = new int[n];
+    boolean [] arr_2 = new boolean[n];
+    
+    System.out.println("Enter " + n + " numbers: ");
+    for (int i = 0; i < arr_1.length; i++){
+      arr_1 [i] = sc.nextInt();
+      arr_2 [i] = true;
+    }
+    int counter = 1 ;
+    for (int j = 0; j < arr_1.length - 1; j++){
+      counter = 1;
+      for (int k = j + 1; k < arr_1.length; k++){
+        if (arr_1[j] == arr_1[k] ){
+          if (arr_2 [k] == true){
+            counter++;
+            arr_2 [k] = false;
+          }
+        } 
+      }
+      if (arr_2 [j] == true){
+        System.out.println(arr_1 [j] + " - " + counter + " times");
+      }
+    }
+    if (arr_2 [arr_2.length - 1] == true){
+      System.out.println(arr_1 [arr_1.length - 1] + " - " + counter + " times");
+    }
+  }
+}
+
+
+//TASK 5
+import java.util.Scanner;
+public class ArrayTask5{
+  public static void main(String [] args) {
+    Scanner sc = new Scanner(System.in);
+    System.out.print("N = ");
+    int n = sc.nextInt();
+    int [] arr = new int [n];
+    int counter = 0 ;
+    
+    System.out.println("Please enter the elements of the array: ");
+    for (int m = 0 ;  m < arr.length; m++){
+      arr [m] = sc.nextInt();
+    }
+    int store = arr [0];
+    System.out.print(store + "  ");
+    for (int i = 1; i < arr.length; i++){
+      if (store != arr [i]){
+        store = arr [i];
+        System.out.print(arr [i] +"  ");       
+      }
+      else{
+        counter++;
+      }
+    }
+    System.out.println();
+    System.out.println("Removed elements: " + counter);
+  }
+}
+
+
+//TASK 6
+import java.util.Scanner;
+public class ArrayTask6{
+  public static void main(String[] args){
+    Scanner sc = new Scanner(System.in);
+    double median = 0.0d;
+    int temp = 0;
+    System.out.print("Numbers to take: ");
+    int n = sc.nextInt();
+    int [] arr = new int[n];
+    System.out.println("Please enter the elements of the array: ");
+    for (int i = 0; i < n; i++){
+      arr [i] = sc.nextInt();
+    }
+    for (int i = 0; i < n -1; i++){
+      for (int j = 0; j < n - 1 - i; j++){
+        if (arr [j] > arr [j + 1]){
+          temp = arr [j];
+          arr [j] = arr [j + 1];
+          arr [j + 1] = temp;
+        }
+      }
+    }
+
+     if (n%2 == 0) {
+            median = (arr [n / 2 - 1] + arr [n / 2]) / 2.0;
+        } else {
+            median = arr [n / 2];
+        }
+        System.out.println("The median is " + median);
+    }
+}
+
+
+
+
+
+

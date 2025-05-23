@@ -1,0 +1,177 @@
+//NAME: NAUROSE FARHAN MOSTAFA
+//ID:   23301196
+
+//TASK 1
+public class UniversityTester {
+    public static void main(String [] args) {
+        //a
+        University u1 = new University();
+        University u2 = new University();
+
+        System.out.println(u1);
+        System.out.println(u2);
+
+        System.out.println(u1.name);
+        System.out.println(u1.country);
+        System.out.println(u2.name);
+        System.out.println(u2.country);
+
+        System.out.println(u1 == u2);
+
+        //b
+        u1.name = "Imperial College London";
+        u1.country = "England";
+
+        u2.name = "Brac University";
+        u2.country = "Bangladesh";
+
+
+        System.out.println(u1.name);
+        System.out.println(u1.country);
+        System.out.println(u2.name);
+        System.out.println(u2.country);
+
+        System.out.println(u1.name.equals(u2.name));
+        System.out.println(u1.country.equals(u2.country));
+    }
+}
+
+
+
+//TASK 2
+public class Test2 {
+    public static void main(String [] args){
+        double pi = Math.PI;
+        Circle c1 = new Circle();
+
+        double circumference = 2 * pi * c1.radius;
+        double area = pi * c1.radius * c1.radius;
+
+        System.out.println("Radius of the circle is " + c1.radius);
+        System.out.println("The area of the circle is " + area);
+        System.out.println("The circumference of the circle is " + circumference);
+    }
+}
+
+
+
+//TASK 3
+public class Test3 {
+    public static void main(String [] args){
+        Student s1 = new Student();
+        System.out.println("Name of the Student: "+s1.name);
+        System.out.println("ID of the Student: "+s1.id);
+        s1.id = 123;
+        System.out.println("ID of the Student: "+s1.id);
+    }
+}
+
+
+
+//TASK 4
+public class Vehicle {
+    String type = "Car";
+    int wheels = 4;
+    String color = "White";
+}
+
+
+
+//TASK 5
+public class Tournament {
+    public String name;
+    public String sportsType;
+    public int numberOfTeams;
+    public String [] teams;
+}
+
+
+
+//TASK 6
+public class ImaginaryNumber {
+    public int realPart;
+    public int imaginaryPart;
+
+    public void printNumber() {
+        System.out.println(realPart + " + " + imaginaryPart + "i");
+    }
+}
+
+
+
+// TASK 7
+public class Cat {
+    public String color = "White";
+    public String action = "Sitting";
+
+    public void printCat() {
+        System.out.println(color + " cat is " + action);
+    }
+}
+
+
+
+// TASK 8
+public class Bird {
+    public String name;
+    public int height;
+
+    public void makeNoise() {
+        if (name.equals("Parrot")) {
+            System.out.println("Squawk");
+        }
+        else if (name.equals("Eagle")) {
+            System.out.println("Squee");
+        }
+    }
+
+    public void flyUp(int height){
+        this.height += height;
+        System.out.println(name + " has flown up " + height + " feet.");
+    }
+
+    public void flyDown(int height){
+        if (this.height - height == 0){
+            this.height -= height;
+            System.out.println(name + " has flown down " + height + " feet and landed.");
+        }
+        else if (this.height - height > 0){
+            this.height -= height;
+            System.out.println(name + " has flown down " + height + " feet.");
+        }
+        else{
+            System.out.println(name + " cannot fly down " + height + " feet.");
+        }
+    }
+}
+
+
+
+// TASK 9
+public class CellPhone {
+    public String model = "Unknown";
+    public String [] store = new String[3];
+    public int contacts;
+
+    public void storeContact(String names){
+        if (contacts < 3){
+            System.out.println("Contact Stored");
+            store[contacts] = names;
+            contacts += 1;
+        }
+        else{
+            System.out.println("Memory full. New contact can't be stored.");
+        }
+    }
+    public void printDetails() {
+        System.out.println("Phone Model " + model);
+        System.out.println("Contact Stored " + contacts);
+        if (contacts > 0){
+            System.out.println("Stored Contacts:");
+            for(int i = 0; i < contacts; i+=1){
+                System.out.println(store [i]);
+            }
+        }
+    }
+}
+

@@ -1,0 +1,300 @@
+//NAME: NAUROSE FARHAN MOSTAFA
+//ID:   23301196
+
+
+// TASK 1
+public class Assignment {
+    public int tasks;
+    public String difficulty;
+    public boolean submission = false;
+
+    public void printDetails(){
+        System.out.println("Number of tasks: " + tasks);
+        System.out.println("Difficulty level: " + difficulty);
+        System.out.println("Submission required: " + submission);
+    }
+
+    public void makeOptional(){
+        if (submission == true){
+            System.out.println("Assignment will not require submission");  
+            submission = false;
+        }
+        else{
+        System.out.println("Submission is already not required");  
+        }
+    }
+}
+
+
+// TASK 2
+public class Shelf {
+    public int capacity;
+    public int books;
+
+    public void showDetails(){
+    System.out.println("Shelf capacity: " + capacity);
+    System.out.println("Number of books: " + books);
+    }
+    public void addBooks(int a){
+        if (capacity == 0){
+            System.out.println("Zero Capacity. Cannot add books.");
+        }
+        else if (books + a > capacity){
+            System.out.println("Exceeds capacity");
+        }
+        else{
+            books += a;
+            System.out.println(a + " books added to shelf");
+        }
+    }
+}
+
+
+// TASK 3
+public class LightController {
+    public String status = "OFF";
+    public int brightness;
+    public boolean Switch = false;
+
+    public void showLightStatus(){
+        System.out.println("Light status: " + this.status);
+        System.out.println("Brightness Level: " + this.brightness);
+    }
+
+    public void adjustBrightness(int a){
+        brightness += a;
+        if (this.Switch == true && brightness > 0 && brightness <= 10){
+            System.out.println("Brightness adjusted.");
+        }
+        else if (this.Switch == false){
+            System.out.println("Please turn on the light first!");
+        }
+        else{
+            System.out.println("Brightness out of range. Set between 0 to 10.");
+            brightness -= a;
+        }
+    }
+
+    public void switchLight(){
+        if (Switch == false){
+            System.out.println("Lights are now ON.");
+            this.status = "ON";
+            this.brightness = 1;
+            this.Switch = true;
+        }
+        else{
+            System.out.println("Lights are now OFF.");
+            this.status = "OFF";
+            this.brightness = 0;
+            this.Switch = false;
+        }
+    }
+    public String resetSettings(){
+        this.status = "ON";
+        this.brightness = 1;
+        return "Lights settings have been reset.";
+    }
+}
+
+
+// TASK 4
+public class ChickenBurger {
+    public String bun = "Sesame";
+    public int price = 200;
+    public String sauceOption = "Less";
+    public String spiceLevel = "Not Set";
+
+    public String serveBurger(){
+        if (spiceLevel.equals("Not Set")){
+            return "Cannot serve now. Customize Spice Level first.";
+        }
+        else{
+            return "The burger is being served:- \nBun Type: " + this.bun + "\nPrice: " + this.price + "\nSauce Option: " + this.sauceOption + "\nSpice Level: " + this.spiceLevel;
+        } 
+    }
+
+    public void customizeSpiceLevel(String a){
+        if (a.equals("Extreme Jhaal")){
+            System.out.println("This spice level is unavailabe."); 
+        }
+        else{
+            spiceLevel = a;
+            System.out.println("Spice level set to " + a + ".");
+        }
+    }
+}
+
+
+// TASK 5
+public class MobilePhone{
+    public int contact;
+    public int storage;
+    public String [] name ;
+    public int [] number ;
+   
+    public void setContactCapacity(int a){
+      this.storage = a;  
+      this.name = new String[storage];  
+      this.number = new int[storage];
+    }
+  
+    public void details(){
+      System.out.println("Total Contacts: " + this.contact); 
+      System.out.println("Contact List:");
+  
+      if (contact > 0){
+        for(int i = 0; i < name.length; i++){
+          System.out.println(name[i] + ":" + number[i]);
+        }
+      } 
+    }
+
+    public void addContact(String x, int y){
+        if (contact == this.storage){
+          System.out.println("Storage Full!!");
+        }
+        else{
+          for(int i = 0; i < number.length; i++){
+            if(name[i] == null){
+              name[i] = x;
+              number[i]= y;
+              contact ++;
+              System.out.println("The contact of " + x + " is added.");
+              break;
+            }
+          }
+        }  
+    }
+
+    public void makeCall(int n){
+        int count = 1;
+        for(int i = 0; i< number.length; i++){
+            count++;
+            if (number[i] == n){
+                System.out.println("Calling " + name[i] + " . . .");
+                break;
+            }
+        else if (storage == count){
+          System.out.println("Calling " + n + " . . .");
+        }
+      }
+    }
+}
+
+
+// TASK 6
+public class Course {
+    public String course;
+    public String code;
+    public String [] syllabus = new String[4];
+    public int index = 0;
+
+    public void printDetails(){
+        System.out.println("Course Details: ");
+        System.out.println("Course Name: " + this.course + "\nCourse Code: " + this.code + "\nCourse Syllabus: ");
+        if (index == 0){
+            System.out.println("No content yet.");
+        }
+        else {
+            for(int i = 0; i < index; i++){
+                System.out.print(syllabus[i]);
+                if (i < index - 1){
+                    System.out.print(", ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public void createCourse(String course, String code){
+        this.course = course;
+        this.code = code;
+    }
+    public void addOneContent(String a){
+        if (index < 4){
+            syllabus[index] = a;
+            index++;
+            System.out.println(a + " was added.");
+        }
+        else {
+            System.out.println("Cannot add more content");
+        }
+    }
+    public void addTwoContent(String x, String y){
+        addOneContent(x);
+        addOneContent(y);
+    }
+}
+
+
+// TASK 7
+// Back there in Task 6, we had two different methods addOneContent & addTwoContent. 
+// But here in Task 7, we only have one method named addContent with Two different Parameters.
+// This task is the example of method overloading.  
+public class Course2 {
+    public String course;
+    public String code;
+    public String [] syllabus = new String[4];
+    public int index = 0;
+
+    public void printDetails(){
+        System.out.println("Course Details: ");
+        System.out.println("Course Name: " + this.course + "\nCourse Code: " + this.code + "\nCourse Syllabus: ");
+        if (index == 0){
+            System.out.println("No content yet.");
+        }
+        else {
+            for(int i = 0; i < index; i++){
+                System.out.print(syllabus[i]);
+                if (i < index - 1){
+                    System.out.print(", ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public void createCourse(String course, String code){
+        this.course = course;
+        this.code = code;
+    }
+
+    public void addContent(String a){
+        if (index < 4){
+            syllabus[index] = a;
+            index++;
+            System.out.println(a + " was added.");
+        }
+        else {
+            System.out.println("Cannot add more content");
+        }
+    }
+    public void addContent(String x, String y){
+        addContent(x);
+        addContent(y);
+    }
+}
+
+
+// TASK 8
+public class Shape {
+    public double area;
+    public String name;
+    
+    public void setParameters(String s, int n){
+        this.name = s;
+        this.area = Math.PI * Math.pow(n,2);
+    }
+    public void setParameters(String s, int x, int y){
+        this.name = s;
+        this.area = 0.5 * x * y;
+    }
+    public void setParameters(String s, int a, int b, int c){
+        this.name = s;
+        this.area = 0.5 * (a + b) * c;
+    }
+
+    public String details(){
+        return "Shape Name: " + this.name + "\nArea: " + this.area;
+    }
+}
